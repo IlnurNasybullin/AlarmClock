@@ -1,0 +1,11 @@
+[
+  {
+    "hour": 14,
+    "minute": 30,
+    "dayOfWeeks": [],
+    "musicPath": "E:\\Музыка из ВК\\Rudimental feat. John Newman - Feel the Love (feat. John Newman).mp3",
+    "isActive": false,
+    "isAlive": true,
+    "taskName": "Пример"
+  }
+]
