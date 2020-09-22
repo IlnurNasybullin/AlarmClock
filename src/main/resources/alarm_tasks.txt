@@ -1,11 +1,19 @@
 [
   {
-    "hour": 14,
-    "minute": 30,
-    "dayOfWeeks": [],
-    "musicPath": "E:\\Музыка из ВК\\Rudimental feat. John Newman - Feel the Love (feat. John Newman).mp3",
+    "hour": 20,
+    "minute": 36,
+    "musicPath": "E:\\ProgrammingProjects\\JavaProjects\\AlarmClock\\.\\src\\main\\resources\\defaultMusicPlayers\\alarm_windows_10.mp3",
     "isActive": false,
     "isAlive": true,
-    "taskName": "Пример"
+    "taskName": ""
+  },
+  {
+    "hour": 21,
+    "minute": 15,
+    "dayOfWeeks": [],
+    "musicPath": "E:\\ProgrammingProjects\\JavaProjects\\AlarmClock\\.\\src\\main\\resources\\defaultMusicPlayers\\alarm_windows_10.mp3",
+    "isActive": false,
+    "isAlive": true,
+    "taskName": ""
   }
 ]

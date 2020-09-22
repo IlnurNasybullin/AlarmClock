@@ -3,7 +3,6 @@ package alarmThread;
 import controllers.AlarmTask;
 import javafx.application.Platform;
 
-import javax.xml.ws.Service;
 import java.time.LocalDateTime;
 
 public class AlarmThread extends Thread {

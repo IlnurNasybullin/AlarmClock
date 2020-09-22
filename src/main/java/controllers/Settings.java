@@ -10,9 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.time.DayOfWeek;
-import java.util.ArrayList;
 import java.util.EnumSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 

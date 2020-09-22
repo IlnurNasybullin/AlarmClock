@@ -1,16 +1,13 @@
 package controllers;
 
-import com.sun.jndi.toolkit.url.Uri;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-import java.awt.*;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.nio.file.Paths;
 
 public class WakeUp {
@@ -35,10 +32,25 @@ public class WakeUp {
         stage.setOnHidden(event -> stop());
 
         URI uri = Paths.get(musicPath).toUri();
-        System.out.println(uri);
 
         Media media = new Media(uri.toASCIIString());
         mediaPlayer = new MediaPlayer(media);
+
+        play(60);
+    }
+
+    private void play(long minSeconds) {
+        long tEnd = System.currentTimeMillis() + minSeconds * 1_000L;
+
+        mediaPlayer.setOnEndOfMedia(() -> {
+            long time = System.currentTimeMillis();
+
+            if (time < tEnd) {
+                mediaPlayer.seek(Duration.ZERO);
+                mediaPlayer.play();
+            }
+        });
+
         mediaPlayer.play();
     }
 

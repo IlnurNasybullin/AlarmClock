@@ -21,7 +21,6 @@ import java.nio.file.StandardOpenOption;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class MainMenu {
 

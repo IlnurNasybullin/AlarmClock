@@ -22,6 +22,7 @@ public class AlarmTask {
 
     private final static String SETTINGS_URL = "./src/main/resources/controllers/Settings.fxml";
     private final static String WAKE_UP = "./src/main/resources/controllers/WakeUp.fxml";
+    private final static String default_player = "./src/main/resources/defaultMusicPlayers/alarm_windows_10.mp3";
 
     private Parent root;
     private Consumer<RemoveData> removeConsumer;
@@ -62,6 +63,7 @@ public class AlarmTask {
             this.hour = hour;
             this.minute = minute;
             this.taskName = taskName;
+            this.musicPath = new File(default_player).getAbsolutePath();
             this.isActive = true;
             this.isAlive = true;
         }
