@@ -4,6 +4,7 @@ import alarmThread.AlarmThread;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +14,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,6 +26,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class MainMenu {
@@ -36,6 +43,8 @@ public class MainMenu {
     private Button AddButton;
 
     private Stage stage;
+
+    private TrayIcon trayIcon;
 
     private Set<AlarmTask> alarmTaskSet;
 
@@ -60,8 +69,56 @@ public class MainMenu {
     }
 
     private void close() {
-        Stage stage = new Stage();
-        stage.hide();
+        if (SystemTray.isSupported() && !trayContains(trayIcon)) {
+            SystemTray tray = SystemTray.getSystemTray();
+            Image image = Toolkit.getDefaultToolkit().createImage("./src/main/resources/images/alarm-clock.png");
+            ActionListener exitListener = e -> {
+                System.exit(0);
+            };
+
+            final JPopupMenu popup = new JPopupMenu();
+            JMenuItem defaultItem = new JMenuItem("Exit");
+            defaultItem.addActionListener(exitListener);
+            popup.add(defaultItem);
+
+            trayIcon = new TrayIcon(image, "Alarm");
+
+            ActionListener actionListener = e -> {
+                Platform.runLater(() -> stage.show());
+            };
+
+            trayIcon.setImageAutoSize(true);
+            trayIcon.addActionListener(actionListener);
+            trayIcon.addMouseListener(new MouseAdapter() {
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    if (e.isPopupTrigger()) {
+                        popup.setLocation(e.getX(), e.getY());
+                        popup.setInvoker(popup);
+                        popup.setVisible(true);
+                    }
+                }
+            });
+
+            try {
+                tray.add(trayIcon);
+            } catch (AWTException e) {
+                System.err.println("TrayIcon could not be added.");
+            }
+        }
+    }
+
+    private boolean trayContains(TrayIcon trayIcon) {
+        TrayIcon[] trayIcons = SystemTray.getSystemTray().getTrayIcons();
+
+        for (TrayIcon t: trayIcons) {
+            if (Objects.equals(trayIcon, t)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void initializeAlarmTasks() {

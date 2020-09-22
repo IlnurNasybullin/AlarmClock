@@ -9,9 +9,9 @@
   },
   {
     "hour": 21,
-    "minute": 15,
+    "minute": 55,
     "dayOfWeeks": [],
-    "musicPath": "E:\\ProgrammingProjects\\JavaProjects\\AlarmClock\\.\\src\\main\\resources\\defaultMusicPlayers\\alarm_windows_10.mp3",
+    "musicPath": "E:\\Музыка из ВК\\David Rawlings - Cumberland Gap.mp3",
     "isActive": false,
     "isAlive": true,
     "taskName": ""

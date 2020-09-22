@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.URL;
 
@@ -35,14 +34,12 @@ public class Main extends Application {
 
     @Override
     public void stop() throws Exception {
-        new Thread(() -> {
-            try {
-                while (true) {
-                    Thread.sleep(10_000);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        try {
+            while (true) {
+                Thread.sleep(10_000);
             }
-        }).start();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
