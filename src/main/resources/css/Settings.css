@@ -1,0 +1,19 @@
+.check-box {
+    -fx-border-style: dashed;
+    -fx-border-color: black;
+    -fx-border-width: 0.1px;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color:grey;
+    -fx-border-radius:3px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #28a3f4;
+}

@@ -11,6 +11,9 @@ import java.io.File;
 import java.net.URL;
 
 public class Main extends Application {
+
+    public static final String MAIN_MENU_FXML = "./src/main/resources/controllers/MainMenu.fxml";
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -19,7 +22,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Platform.setImplicitExit(false);
 
-        URL url = new File("./src/main/resources/controllers/MainMenu.fxml").toURI().toURL();
+        URL url = new File(MAIN_MENU_FXML).toURI().toURL();
 
         FXMLLoader loader = new FXMLLoader();
         MainMenu mainMenu = new MainMenu(stage);
@@ -29,6 +32,7 @@ public class Main extends Application {
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.setTitle("Будильник");
+        stage.setResizable(false);
         stage.show();
     }
 

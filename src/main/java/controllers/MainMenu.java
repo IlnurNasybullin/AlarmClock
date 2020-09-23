@@ -73,6 +73,7 @@ public class MainMenu {
             SystemTray tray = SystemTray.getSystemTray();
             Image image = Toolkit.getDefaultToolkit().createImage("./src/main/resources/images/alarm-clock.png");
             ActionListener exitListener = e -> {
+                tray.remove(trayIcon);
                 System.exit(0);
             };
 

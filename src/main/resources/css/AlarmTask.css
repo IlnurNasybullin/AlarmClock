@@ -1,0 +1,29 @@
+#AlarmTaskAnchorPane {
+    -fx-border-color: #5dbaff;
+    -fx-border-width: 1px;
+    -fx-transition: transform .2s;
+}
+
+#AlarmTaskAnchorPane:hover {
+    -fx-scale-y: 1.05;
+    -fx-scale-x: 1.05;
+    -fx-border-color: #3590ff;
+    -fx-border-width: 2px;
+}
+
+#HourLabel, #MinuteLabel {
+    -fx-background-color: #dddddd;
+}
+
+.button {
+    -fx-background-image: url("../images/settings.png") fixed;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-transition: transform .2s;
+}
+
+.button:hover {
+    -fx-scale-y: 1.15;
+    -fx-scale-x: 1.15;
+}

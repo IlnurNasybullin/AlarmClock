@@ -1,0 +1,11 @@
+#AddButton {
+    -fx-background-color: #008ef4;
+    -fx-background-image: url("../images/append.png") fixed;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 70% 70%
+}
+
+#AddButton:hover {
+    -fx-background-color: #0065f4;
+}
